@@ -1,6 +1,4 @@
 """
-process_files.py
-
 Task I did in this file:
 - Load folder paths from config.ini
 - Read Kafka settings from environment variables
@@ -30,7 +28,7 @@ from kafka import KafkaProducer  # kafka-python
 
 
 DEFAULT_LOG_FILE = "/var/log/csv_kafka_streamer/processor.log"  # changed in Docker via env/volume
-DEFAULT_LOG_MAX_BYTES = 5 * 1024 * 1024  # 5 MB
+DEFAULT_LOG_MAX_BYTES = 5 * 1024 * 1024
 DEFAULT_LOG_BACKUP_COUNT = 5
 DEFAULT_LOG_LEVEL = "INFO"
 
@@ -196,7 +194,7 @@ def process_csv_file(file_path: str, producer: ProducerWrapper):
     return processed
 
 def main():
-    # 1) load config.ini
+    # 1) loading config.ini
     try:
         cfg = load_config(os.environ.get("APP_CONFIG_PATH", "config.ini"))
     except Exception as e:
