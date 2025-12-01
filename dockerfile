@@ -1,9 +1,5 @@
 FROM python:3.11-slim
 
-# metadata
-LABEL maintainer="you@example.com" \
-      description="CSV to Kafka streamer"
-
 RUN adduser --disabled-password --gecos "" appuser
 
 WORKDIR /app

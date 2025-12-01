@@ -46,6 +46,12 @@ services:
       # config path inside container
       APP_CONFIG_PATH: /app/config.ini
     volumes:
-      # to be done later.
+      - ./data/input:/data/input:rw
+      - ./data/archive:/data/archive:rw
+      - ./data/output:/data/output:rw
+      - ./data/error:/data/error:rw
+      - ./data/logs:/data/logs:rw
+      - ./config.ini:/app/config.ini:ro
+
     command: ["python", "/app/process_files.py"]
     restart: "no"
